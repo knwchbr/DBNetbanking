@@ -14,14 +14,14 @@ Author URL: http://w3layouts.com
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="static/css/style-starter.css">
   </head>
   <body>
 <!--header-->
 <header id="site-header" class="fixed-top">
   <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0">
-          <h1> <a class="navbar-brand" href="index.html">
+          <h1> <a class="navbar-brand" href="{{ url_for('index')}}">
                   <span class="fa fa-cc-visa"></span> Bank Cards
               </a></h1>
           <!-- if logo is image enable this   
@@ -38,16 +38,16 @@ Author URL: http://w3layouts.com
           <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
               <ul class="navbar-nav ml-auto">
                   <li class="nav-item active">
-                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                      <a class="nav-link" href="{{ url_for('index')}}">Home <span class="sr-only">(current)</span></a>
                   </li>
                   <li class="nav-item @@about__active">
-                      <a class="nav-link" href="about.html">About</a>
+                      <a class="nav-link" href="{{ url_for('about')}}">About</a>
                   </li>
                   <li class="nav-item @@services__active">
-                      <a class="nav-link" href="services.html">Services</a>
+                      <a class="nav-link" href="{{ url_for('services')}}">Services</a>
                   </li>
                   <li class="nav-item @@contact__active">
-                      <a class="nav-link" href="contact.html">Contact</a>
+                      <a class="nav-link" href="{{ url_for('contact')}}">Contact</a>
                   </li>
                   <!--/search-right-->
                   <div class="search mr-3">
@@ -99,11 +99,11 @@ Author URL: http://w3layouts.com
                                         </p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#book"> Book a
                                             card</a>
-                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="about.html">
+                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="{{ url_for('about')}}">
                                             Read More</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
-                                        <img src="assets/images/card1.png" alt="img"
+                                        <img src="{{ url_for('static', filename='images/card1.png')}}" alt="img"
                                             class="img-fluid radius-image-curve" />
                                     </div>
                                 </div>
@@ -126,11 +126,11 @@ Author URL: http://w3layouts.com
                                         </p>
                                         <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="#book"> Book a
                                             card</a>
-                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="about.html">
+                                        <a class="btn btn-style btn-outline-light mt-sm-5 mt-4 mr-2" href="about">
                                             Read More</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
-                                        <img src="assets/images/card2.png" alt="img"
+                                        <img src="{{ url_for('static', filename='images/card2.png')}}" alt="img"
                                             class="img-fluid radius-image-curve" />
                                     </div>
                                 </div>
@@ -157,7 +157,7 @@ Author URL: http://w3layouts.com
                                             Read More</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
-                                        <img src="assets/images/card3.png" alt="img"
+                                        <img src="{{ url_for('static', filename='images/card3.png')}}" alt="img"
                                             class="img-fluid radius-image-curve" />
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@ Author URL: http://w3layouts.com
                                             Read More</a>
                                     </div>
                                     <div class="col-lg-5 col-md-8 img offset-lg-1 mt-lg-0 mt-4">
-                                        <img src="assets/images/card4.png" alt="img"
+                                        <img src="{{ url_for('static', filename='images/card4.png')}}" alt="img"
                                             class="img-fluid radius-image-curve" />
                                     </div>
                                 </div>
@@ -265,11 +265,11 @@ Author URL: http://w3layouts.com
                         ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet
                         elit. Non quae, fugiat nihil ad. Lorem ipsum dolor sit amet. Lorem ipsum init
                         dolor sit, amet elit. Dolor ipsum non velit, culpa! Vivamus a et ut justo, init in dolor et.</p>
-                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="about.html"> Learn More</a>
+                    <a class="btn btn-style btn-primary mt-sm-5 mt-4 mr-2" href="{{url_for('about')}}"> Learn More</a>
                 </div>
                 <div class="col-lg-5">
                     <div class="position-relative">
-                        <img src="assets/images/about.jpg" alt="" class="radius-image img-fluid">
+                        <img src="{{ url_for('static', filename='/images/about.jpg')}}" alt="" class="radius-image img-fluid">
                     </div>
                 </div>
             </div>
@@ -321,7 +321,7 @@ Author URL: http://w3layouts.com
                     </div>
                 </div>
                 <div class="col-lg-4 mobile-left px-lg-5">
-                    <img src="assets/images/mobile.png" class="img-fluid radius-image" alt="">
+                    <img src="{{ url_for('static', filename='images/mobile.png')}}" class="img-fluid radius-image" alt="">
                 </div>
                 <div class="col-lg-4 mobile-right">
                     <div class="row mobile-right-grids mb-lg-5 mb-4">
@@ -381,7 +381,7 @@ Author URL: http://w3layouts.com
                         set hendrerit. Sed nisl justo, init id purus vitae, nibh sed et</p>
                     <div class="author align-items-center mt-4 mb-1">
                         <div class="img-circle">
-                            <img src="assets/images/team2.jpg" class="mr-3 img-fluid" alt="...">
+                            <img src="{{ url_for('static', filename='images/team2.jpg')}}" class="mr-3 img-fluid" alt="...">
                         </div>
                         <div class="author-info">
                             <a href="#author">Maxwell ker</a> <br> <span class="meta-value">Sep 28, 2020 </span>
@@ -498,7 +498,7 @@ Author URL: http://w3layouts.com
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 mt-lg-0 mt-md-5 mt-4">
-                    <img src="assets/images/stats.jpg" alt="" class="radius-image img-fluid">
+                    <img src="{{ url_for('static', filename='images/stats.jpg')}}" alt="" class="radius-image img-fluid">
                 </div>
             </div>
         </div>
@@ -578,7 +578,7 @@ Author URL: http://w3layouts.com
             <div class="row mt-lg-5 mt-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="grids5-info">
-                        <a href="#blog-single" class="d-block zoom"><img src="assets/images/blog1.jpg" alt=""
+                        <a href="#blog-single" class="d-block zoom"><img src="{{ url_for('static', filename='images/blog1.jpg')}}" alt=""
                                 class="img-fluid news-image" /></a>
                         <div class="blog-info">
                             <h4><a href="#blog-single">7 Banking services that can save retirees money</a></h4>
@@ -589,7 +589,7 @@ Author URL: http://w3layouts.com
                 </div>
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-5">
                     <div class="grids5-info">
-                        <a href="#blog-single" class="d-block zoom"><img src="assets/images/blog2.jpg" alt=""
+                        <a href="#blog-single" class="d-block zoom"><img src="{{ url_for('static', filename='images/blog2.jpg')}}" alt=""
                                 class="img-fluid news-image" /></a>
                         <div class="blog-info">
                             <h4><a href="#blog-single">8 Ways to Drive Adoption of Your Banking App</a></h4>
@@ -600,7 +600,7 @@ Author URL: http://w3layouts.com
                 </div>
                 <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
                     <div class="grids5-info">
-                        <a href="#blog-single" class="d-block zoom"><img src="assets/images/blog3.jpg" alt=""
+                        <a href="#blog-single" class="d-block zoom"><img src="{{ url_for('static', filename='images/blog3.jpg')}}" alt=""
                                 class="img-fluid news-image" /></a>
                         <div class="blog-info">
                             <h4><a href="#blog-single">How is it progressing and what will 2020 bring?</a></h4>
@@ -700,22 +700,22 @@ Author URL: http://w3layouts.com
 <!-- //footer -->
 
 <!--  javascripts file here -->
-<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
 
-<script src="assets/js/theme-change.js"></script> <!-- //light and dark mode switch js -->
+<script src="{{ url_for('static', filename='js/theme-change.js')}}"></script> <!-- //light and dark mode switch js -->
 
-<script src="assets/js/circles.js"></script>
+<script src="{{ url_for('static', filename='js/circles.js')}}"></script>
 
 <!-- stats number counter-->
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.countup.js"></script>
+<script src="{{ url_for('static', filename='js/jquery.waypoints.min.js')}}"></script>
+<script src="{{ url_for('static', filename='js/jquery.countup.js')}}"></script>
 <script>
   $('.counter').countUp();
 </script>
 <!-- //stats number counter -->
 
 <!-- owl carousel -->
-<script src="assets/js/owl.carousel.js"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.js')}}"></script>
 <!-- script for banner slider-->
 <script>
   $(document).ready(function () {
@@ -811,7 +811,7 @@ Author URL: http://w3layouts.com
 </script>
 <!--//MENU-JS-->
 
-<script src="assets/js/bootstrap.min.js"></script><!-- //bootstrap js -->
+<script src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script><!-- //bootstrap js -->
 </body>
 
 </html>

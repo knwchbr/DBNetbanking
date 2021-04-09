@@ -14,14 +14,14 @@ Author URL: http://w3layouts.com
     <link href="//fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;700&display=swap" rel="stylesheet">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-starter.css')}}">
   </head>
   <body>
 <!--header-->
 <header id="site-header" class="fixed-top">
   <div class="container">
       <nav class="navbar navbar-expand-lg stroke px-0">
-          <h1> <a class="navbar-brand" href="index.html">
+          <h1> <a class="navbar-brand" href="{{ url_for('index')}}">
                   <span class="fa fa-cc-visa"></span> Bank Cards
               </a></h1>
           <!-- if logo is image enable this   
@@ -98,7 +98,7 @@ Author URL: http://w3layouts.com
             <div class="row">
                 <div class="col-lg-6">
                     <div class="position-relative">
-                        <img src="assets/images/blog2.jpg" alt="" class="radius-image img-fluid">
+                        <img src="{{ url_for('static', filename='images/blog2.jpg')}}" alt="" class="radius-image img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6 mt-lg-0 mt-md-5 mt-4 align-self">
@@ -442,7 +442,7 @@ Author URL: http://w3layouts.com
 <!-- //stats number counter -->
 
 <!-- owl carousel -->
-<script src="assets/js/owl.carousel.js"></script>
+<script src="{{ url_for('static', filename='js/owl.carousel.js')}}"></script>
 <!-- script for banner slider-->
 <script>
   $(document).ready(function () {
