@@ -61,7 +61,7 @@ h1 {
 }
 .header-top1{
 	float: left;
-	    width: 28%;
+	width: 28%;
 }
 .header-top2{
 	float: left;
@@ -69,8 +69,8 @@ h1 {
 	width: 44%;
 }
 .header-top3{
-	float: left;
-	    width: 28%;
+	float: right;
+	width: 28%;
 }
 a.follow{
 	color:#fff;
@@ -186,7 +186,7 @@ a.follow1 img{
 .text{
 	float: right;
 	color:#8C8B8B;
-	font-size: 1.1em;
+	font-size: 12px;
 }
 /*----*/
 .copy-right{
@@ -248,9 +248,7 @@ h1 {
     width: 82%;
     padding: 2em;
 }
-.text {
-    font-size: 1em;
-}	
+
 .number {
     font-size: 1.1em;
 }
@@ -282,9 +280,7 @@ a.follow {
 .number {
     font-size: 1em;
 }
-.text {
-    font-size: 0.9em;
-}
+
 .header-bottom1 {
     width: 30%;
         padding: 1em 0.3em;
@@ -300,7 +296,7 @@ a.follow {
 .header-top3 {
     width: 42%;
     margin: 0 auto;
-    float: none;
+    float: right;
 }
 .header-top2 {
     margin: 1.5em 0;
