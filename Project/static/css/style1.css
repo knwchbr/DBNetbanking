@@ -54,14 +54,14 @@ h1 {
 }
 /*-----*/
 .header{
-	background: #7b59d0;
+	background: #4ec2e7;
 	width:40%;
 	margin: 0 auto;
 	padding: 3em;
 }
 .header-top1{
 	float: left;
-	width: 28%;
+	    width: 28%;
 }
 .header-top2{
 	float: left;
@@ -69,8 +69,8 @@ h1 {
 	width: 44%;
 }
 .header-top3{
-	float: right;
-	width: 28%;
+	float: left;
+	    width: 28%;
 }
 a.follow{
 	color:#fff;
@@ -186,7 +186,7 @@ a.follow1 img{
 .text{
 	float: right;
 	color:#8C8B8B;
-	font-size: 10px;
+	font-size: 1.1em;
 }
 /*----*/
 .copy-right{
@@ -248,7 +248,9 @@ h1 {
     width: 82%;
     padding: 2em;
 }
-
+.text {
+    font-size: 1em;
+}	
 .number {
     font-size: 1.1em;
 }
@@ -280,7 +282,9 @@ a.follow {
 .number {
     font-size: 1em;
 }
-
+.text {
+    font-size: 0.9em;
+}
 .header-bottom1 {
     width: 30%;
         padding: 1em 0.3em;
@@ -296,7 +300,7 @@ a.follow {
 .header-top3 {
     width: 42%;
     margin: 0 auto;
-    float: right;
+    float: none;
 }
 .header-top2 {
     margin: 1.5em 0;
