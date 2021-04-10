@@ -1,0 +1,72 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+	<title>Register</title>
+
+	<!-- Meta tags -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script>
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+		
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	  </script>
+	<!-- Style -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}" type="text/css" media="all" />
+</head>
+
+<body>
+	<!-- Signup form -->
+	<section class="w3l-signup">
+		<div class="overlay">
+			<div class="wrapper">
+				<div class="logo">
+					<a class="brand-logo" href="{{ url_for('index')}}">Sign up</a>
+				</div>
+				<div class="form-section">
+					<h3>Register</h3>
+					<form action="{{ url_for('register')}}" method="post" class="signup-form">
+						<div class="form-input">
+							<input type="text" name="username" placeholder="username" id="username" required autofocus>
+						</div>
+						<div class="form-input">
+							<input type="email" name="email" placeholder="Email" id="email" required autofocus>
+						</div>
+						<div class="form-input">
+							<input type="text" name="tel" placeholder="tel" id="tel" required autofocus>
+						</div>
+						<div class="form-input">
+							<input type="password" name="password" placeholder="Password" id="password" required autofocus>
+						</div>
+						<div class="msg">{{ msg }}</div>
+						<button type="submit" class="btn btn-primary theme-button mt-4">Sign Up</button>
+					</form><p class="signup">Already a customer? <a href="{{ url_for('login')}}" class="signuplink">Login now</a></p>
+				</div>
+			</div>
+		</div>
+		<div id='stars'></div>
+		<div id='stars2'></div>
+		<div id='stars3'></div>
+
+		<!-- copyright -->
+		<div class="copy-right">
+			<p>&copy; DBNetbanking
+			</p>
+		</div>
+		<!-- //copyright -->
+	</section>
+
+	<!-- /Signup form -->
+</body>
+
+</html>
