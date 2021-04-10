@@ -72,10 +72,11 @@ def contact() :
 
 @app.route('/profile')
 def profile() :
-    if 'logged_in' in session :
+    '''if 'logged_in' in session :
         return render_template('profile.html')
     else :
-        return redirect(url_for("login"))
+        return redirect(url_for("login"))'''
+    return render_template('profile.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login() :
