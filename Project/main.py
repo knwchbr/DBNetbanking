@@ -84,10 +84,6 @@ def login() :
         name = request.form['username']
         password = request.form['password']
         user = db.session.query(User).filter_by(name=name).first()
-        print(user.name)
-        print(user.password)
-        print(name)
-        print(password)
         if user : 
             if name == user.name and password == user.password :
                 session['logged_in'] = True
