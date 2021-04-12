@@ -183,12 +183,12 @@ a.follow1 img{
 .number{
 	float: left;
 	color:#000;
-	font-size: 1.2em;
+	font-size: 12px;
 }
 .text{
 	float: right;
 	color:#8C8B8B;
-	font-size: 24px;
+	font-size: 12px;
 }
 /*----*/
 .copy-right{
@@ -252,7 +252,7 @@ h1 {
 }
 
 .number {
-    font-size: 1.1em;
+    font-size: 12px;
 }
 .header-bottom1 {
     width: 26.5%;
@@ -280,7 +280,7 @@ a.follow {
     width: 44%;
 }
 .number {
-    font-size: 1em;
+    font-size: 12px;
 }
 
 .header-bottom1 {

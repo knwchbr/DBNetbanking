@@ -6,6 +6,7 @@ from datetime import datetime
 import uuid
 import requests
 import re
+import random
 
 app = Flask(__name__)
 app.secret_key = 'Mac126218'
@@ -24,17 +25,20 @@ class User(db.Model) :
 class CardAccount(db.Model) :
     __tablename__ = "CardAccount"
     id = Column(Integer, primary_key=True)
-    FullName = Column(String)
-    email = Column(String)
-    sex = Column(String)
-    phone = Column(Integer)
+    First_Name = Column(String)
+    Last_Name = Column(String)
+    Gender = Column(String)
+    Date = Column(String)
+    Email = Column(String)
+    Phone = Column(Integer)
     Address = Column(String)
     City = Column(String)
     State = Column(String)
-    Zip = Column(Integer)
+    Zipcode = Column(Integer)
     Identity = Column(Integer)
+    Cardtype = Column(String)
     id_user = Column(Integer)
-    Date = Column(String)
+    
 
 class CardMoney(db.Model) :
     __tablename__ = "CardMoney"
@@ -72,11 +76,18 @@ def contact() :
 
 @app.route('/profile')
 def profile() :
-    '''if 'logged_in' in session :
-        return render_template('profile.html')
+    if 'logged_in' in session :
+        Card = db.session.query(CardAccount).filter_by(id_user=session['id']).first()
+        if Card :
+            return render_template('profile.html')
+        else :
+            return redirect(url_for('profile1'))
     else :
-        return redirect(url_for("login"))'''
-    return render_template('profile.html')
+        return redirect(url_for("login"))
+
+@app.route('/profile1')
+def profile1() :
+    return render_template('profile1.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login() :
@@ -95,6 +106,24 @@ def login() :
         else :
             msg = "Not have account"
     return render_template('login.html', msg=msg)
+
+@app.route('/registercard', methods=['GET', 'POST'])
+def registercard() :
+    if request.method == 'POST' and 'fname' in request.form and 'lname' in request.form and 'gender' in request.form and 'date of birth' in request.form and 'email' in request.form and 'contact' in request.form and 'address' in request.form and 'city' in request.form and 'state' in request.form and 'zipcode' in request.form and 'Identity' in request.form and 'typecard' in request.form :
+        fname = request.form['fname']
+        lname = request.form['lname']
+        gender = request.form['gender']
+        date = request.form['date of birth']
+        email = request.form['email']
+        phone = request.form['contact']
+        address = request.form['address']
+        city = request.form['city']
+        state = request.form['state']
+        zipcode = request.form['zipcode']
+        Identity = request.form['Identity']
+        typecard = request.form['typecard']
+        
+    return render_template('registercard.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register() :
@@ -124,5 +153,13 @@ def register() :
     elif request.method == 'POST' :
         msg = 'Please fill out the form!'
     return render_template('register.html', msg=msg)
+
+@app.route('/logout')
+def logout() :
+    session.pop('logged_in', None)
+    session.pop('id', None)
+    session.pop('name', None)
+    return redirect(url_for('index'))
+
 if __name__ == '__main__' :
     app.run(debug=True, host='127.0.0.1')

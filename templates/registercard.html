@@ -24,23 +24,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </head>
 <body>
 <div class="w3l-head">
-<h1>library membership form</h1>
+<h1>Register Card</h1>
 </div>
 <div class="w3ls-form">
-<form action="#" medthod="post">
+<form action="{{ url_for('registercard')}}" medthod="POST">
 		<div class="w3l-last-grid1">
 			<div class="w3l-grid1">
 				<label class="text">First name</label>
 				<div class="w3l-div">
 					<i class="fa fa-user" aria-hidden="true"></i>
-					<input type="text" name="name" placeholder="first name" required=""/>
+					<input type="text" name="fname" placeholder="first name" id="fname" required autofocus/>
 				</div>
 			</div> 
 			<div class="w3l-grid2">
 			<label class="text">Last name</label>
 			<div class="w3l-div">
 				<i class="fa fa-user" aria-hidden="true"></i>
-				<input type="text" name="name" placeholder="last name" required=""/>
+				<input type="text" name="lname" placeholder="last name" id="lname" required autofocus/>
 			</div>
 			</div>
 			<div class="clear"></div>
@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<label class="text">gender</label>
 				<div class="w3l-div">
 					<i class="fa fa-users" aria-hidden="true"></i>
-					<select class="form-control" required="">
+					<select class="form-control" name='gender' id="gender" required autofocus>
 						<option>gender</option>
 						<option>Male</option>
 						<option>Female</option>
@@ -61,7 +61,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<label class="text">date of birth</label>
 				<div class="w3l-div">
 					<i class="fa fa-calendar" aria-hidden="true"></i>
-					<input type="text" class="date" id="datepicker" name="date of birth" placeholder="dob" value="MM/DD/YYYY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'MM/DD/YYYY';}" required=""/>
+					<input type="text" class="date" id="datepicker" name="date of birth" id="date of birth" placeholder="dob" value="MM/DD/YYYY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'MM/DD/YYYY';}" required autofocus/>
 				</div>	
 			</div>	
 			<div class="clear"></div>
@@ -71,14 +71,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<label class="text">Your Email</label>
 				<div class="w3l-div">
 					<i class="fa fa-envelope-o" aria-hidden="true"></i>
-					<input type="email" name="email" placeholder="e-mail" required=""/>
+					<input type="email" name="email" placeholder="e-mail" id="email" required autofocus/>
 				</div>
 			</div>
 			<div class="w3l-grid2">
 				<label class="text">phone number</label>
 				<div class="w3l-div">
 					<i class="fa fa-phone" aria-hidden="true"></i>
-					<input type="text" name="contact" placeholder="phone number" required=""/>
+					<input type="text" name="contact" placeholder="phone number" id="contact" required autofocus/>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -88,14 +88,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<label class="text">address</label>
 				<div class="w3l-div">
 					<i class="fa fa-location-arrow" aria-hidden="true"></i>
-					<input type="text" name="address" placeholder="current address" required=""/>
+					<input type="text" name="address" placeholder="current address" id="address" required autofocus/>
 				</div>
 			</div>
 			<div class="w3l-grid2">	
 				<label class="text">city</label>
 				<div class="w3l-div">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
-					<input type="text" name="city" placeholder="city" required=""/>
+					<input type="text" name="city" placeholder="city" id="city" required autofocus/>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -106,14 +106,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<label class="text">state</label>
 				<div class="w3l-div">
 					<i class="fa fa-map-marker" aria-hidden="true"></i>
-					<input type="text" name="state" placeholder="state/province" required=""/>
+					<input type="text" name="state" placeholder="state/province" id="state" required autofocus/>
 				</div>
 			</div>
 			<div class="w3l-grid2">
 				<label class="text">zipcode</label>
 				<div class="w3l-div">
 					<i class="fa fa-address-card-o" aria-hidden="true"></i>
-					<input type="text" name="zipcode" placeholder="postal" required=""/>
+					<input type="text" name="zipcode" placeholder="postal" id="zipcode" required autofocus/>
 				</div>
 			</div>
 			<div class="clear"></div>
@@ -121,35 +121,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		
 		<div class="w3l-right-grid1">
 		<div class="w3l-grid1">
-			<label class="text">takes member ship <span>?</span></label>
-				<div class="w3l-div">
-				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-					<select class="form-contro3" required="">
-						<option>membership</option>
-						<option>yearly</option>
-						<option>quarterly</option>
-						<option>weakly</option>
-						<option>never</option>
-					</select>
-				</div>
+					<label class="text">Identity ID</label>
+					<div class="w3l-div">
+						<i class="fa fa-id-card" aria-hidden="true"></i>
+						<input type="text" name="Identity" placeholder="Identity" id="Identity" required autofocus/>
+					</div>
 		</div>	
-			<label class="text">which type of books</label>
+			<label class="text">which type of Card</label>
 			<div class="w3l-grid2">
 				<div class="w3l-div">
-					<i class="fa fa-book" aria-hidden="true"></i>
-					<select class="form-contro2" required="">
-						<option>select books</option>
-						<option>history</option>
-						<option>science</option>
-						<option>social</option>
-						<option>mathematics</option>
+					<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+					<select class="form-contro2" name="typecard" id="typecard" required autofocus>
+						<option>Visa Card</option>
+						<option>Master Card</option>
+						<option>JCB Card</option>
 					</select>
 				</div>
 			</div>
 		</div>
 		<div class="clear"></div>
 		<div class="w3ls-submit">
-			<input type="submit" value="add a member">
+			<button type="submit" >add a card</button>
 		</div>
 </form>
 </div>

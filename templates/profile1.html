@@ -34,7 +34,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					
 			</div>
 			<div class="header-top2">
-				<img src="{{ url_for('static', filename='images/man3.png')}}" alt="">
+				<a  href="{{url_for('registercard')}}"><img src="{{ url_for('static', filename='images/add.png')}}" alt=""></a>
+				
 				<h5>{{ Name }}</h5>
 				<p>{{ Date }}</p>
 			</div>
@@ -42,24 +43,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="clear"> </div>
 		</div>
-		<div class="header-bottom">
-			<div class="header-bottom1">
-				<span class="number">{{ Money }}</span>
-				<p class="text" >Wallet Balance</p>
-				<div class="clear"></div>
-			</div>
-			<div class="header-bottom1">
-				<span class="number">{{ MoneyLimit }}</span>
-				<p class="text">Monthly Spending Limit</p>
-				<div class="clear"> </div>
-			</div>
-			<div class="header-bottom1">
-				<span class="number">{{ MoneyLimitCount }}</span>
-				<p class="text">Remaining Spending Limit</p>
-				<div class="clear"> </div>
-			</div>
-			<div class="clear"> </div>
-		</div>
+
 	</div>
 
 
