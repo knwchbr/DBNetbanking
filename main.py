@@ -82,11 +82,11 @@ def profile() :
             CardA = db.session.query(CardAccount).filter_by(id_user=session['id']).first()
             name = CardA.First_Name + " " + CardA.Last_Name
             CardM = db.session.query(CardMoney).filter_by(CardID=CardA.id).first()
-            date = CardM.Date
+            ID = CardA.id
             money = CardM.Money
             limit = CardM.Limit
             limitcount = CardM.LimitCount
-            return render_template('profile.html', Name=name, Date=date, Money=money, MoneyLimit=limit, MoneyLimitCount=limitcount)
+            return render_template('profile.html', Name=name, ID=ID, Money=money, MoneyLimit=limit, MoneyLimitCount=limitcount)
         else :
             return redirect(url_for('profile1'))
     else :
