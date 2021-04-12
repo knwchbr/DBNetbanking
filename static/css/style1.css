@@ -1,0 +1,337 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+/* start editing from here */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0;padding:0;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+.underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+/*--login start here--*/
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url(../images/2.png)repeat 0px 0px;
+    font-size: 100%;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+/*--header start here--*/
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #3C2F24;
+    margin: 2em 0em 1em 0em;
+  
+}
+/*-----*/
+.header{
+	background: #7b59d0;
+	width:40%;
+	margin: 0 auto;
+	padding: 3em;
+}
+.header-top1{
+	float: left;
+	width: 28%;
+}
+.header-top2{
+	float: left;
+	text-align: center;
+	width: 44%;
+}
+.header-top3{
+    position: absolute;
+	top: 8px;
+    right: 16px;
+	width: 28%;
+}
+a.follow{
+	color:#fff;
+	font-size: 1em;
+	background: rgb(250, 223, 26);
+	border-radius:4px;
+	padding:0.8em 1.3em;
+	float: left;
+	margin-right: 6%; 
+}
+a.follow:hover {
+    background: rgb(198, 176, 11);
+    
+}
+a.follow1 {
+    border: 2px solid #000;
+    border-radius: 4px;
+    padding: 4px 8px;
+    text-align: center;
+    float: left;
+    margin-top: 4px;
+    position: relative;
+}
+a.follow1 span {
+    border-radius: 100px;
+    color: #000;
+    background: #fff;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -42%;
+    right: -37%;
+}
+a.follow1 img{
+	display: block;
+}
+.header-top2 img{
+	border-radius:100px;
+}
+.header-top2 h5{
+	color:#000;
+	font-size: 1.4em;
+	    margin-top: 10px;
+}
+.header-top2 p{
+	color: #fff;
+    font-size: 1em;
+    margin-top: 13px;
+}
+.social {
+    border: 2px solid #000;
+    border-radius: 4px;
+}
+.social li{
+	display: inline-block;
+}
+.social li a{
+	 border-right: 2px solid #000;
+	     display: block;
+}
+.social li a i {
+    background: url(../images/img-sprite.png) no-repeat 5px 0px;
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    padding: 0 4px;
+}
+.social li a i.ic {
+    background-position:  -33px 0px;
+}
+.social li a i.ic1 {
+    background-position:  -81px 0px;
+}
+.social li a i.ic2 {
+    background-position:  -126px 0px;
+}
+.social li a.line {
+    border-right:none;
+}
+.social li a i:hover {
+    background: url(../images/img-sprite.png) no-repeat 5px -44px;
+}
+.social li a i.ic:hover {
+    background-position:  -33px -43px;
+}
+.social li a i.ic1:hover {
+    background-position:  -81px -43px;
+}
+.social li a i.ic2:hover {
+    background-position:  -126px -43px;
+}
+/*----*/
+.header-bottom{
+	background: #fff;
+	border:1px solid #000;
+	border-radius:4px;
+	    margin-top: 5em;
+}
+.header-bottom1 {
+    float: left;
+    width: 27.7%;
+    border-right: 1px solid #000;
+    padding: 1em;
+}
+.header-bottom1:nth-child(3) {
+    border-right: none;
+}
+.number{
+	float: left;
+	color:#000;
+	font-size: 12px;
+}
+.text{
+	float: right;
+	color:#8C8B8B;
+	font-size: 12px;
+}
+/*----*/
+.copy-right{
+	text-align: center;
+	    padding: 5em 0;
+}
+.copy-right p{
+	color:#000;
+	font-size: 1em;
+}
+.copy-right p a{
+	color: #FADF1A;	
+}
+.copy-right p a:hover{
+	color: #000;	
+}
+/*----*/
+@media(max-width:1600px){	
+.social li a i {
+    padding: 0 2px;
+}
+}
+@media(max-width:1440px){
+.social li a i {
+    padding: 0 0px;
+}
+.header-bottom1 {
+    width: 27.5%;	
+}
+}
+@media(max-width:1366px){
+.header {
+    width: 42%;	
+}
+}
+@media(max-width:1280px){
+.header {
+    width: 45%;
+}	
+}
+@media(max-width:1024px){
+.header {
+    width: 56%;
+}	
+a.follow {
+    margin-right: 4%;
+}
+}
+@media(max-width:768px){
+.header {
+    width: 75%;
+}
+h1 {
+    font-size: 2.5em;	
+}
+}
+@media(max-width:736px){
+.header {
+    width: 82%;
+    padding: 2em;
+}
+
+.number {
+    font-size: 12px;
+}
+.header-bottom1 {
+    width: 26.5%;
+}
+a.follow1 {
+    padding: 2px 6px;
+    margin-top: 5px;
+}
+a.follow {
+    margin-right: 3%;
+    padding: 0.8em 1em;
+}
+.header-top3 {
+    width: 31%;
+}
+.header-top2 {
+    width: 41%;
+}
+}
+@media(max-width:600px){
+.header-top2 {
+    width: 100%;
+}
+.header-top3 {
+    width: 44%;
+}
+.number {
+    font-size: 12px;
+}
+
+.header-bottom1 {
+    width: 30%;
+        padding: 1em 0.3em;
+}	
+.header-top1 {
+    float: none;
+    width: 41%;
+    margin: 0 auto;
+}
+.social {
+    display: inline-block;
+}
+.header-top3 {
+    width: 42%;
+    margin: 0 auto;
+    float: right;
+}
+.header-top2 {
+    margin: 1.5em 0;
+}
+.copy-right p {
+    font-size: 0.9em;
+    line-height: 1.5em;
+}
+h1 {
+    font-size: 2.3em;
+}
+}
+@media(max-width:414px){
+h1 {
+    font-size: 1.6em;
+}
+.header {
+    padding: 1em;
+}	
+.header-top1 {
+    width: 63%;
+}
+.header-top3 {
+    width: 64%;
+}
+.header-bottom {
+    margin-top: 3em;
+}
+.number,.text {
+    float: none;
+ }
+ .header-bottom1 {
+    width: 26%;
+    padding: 1em 0.5em;
+}
+}
