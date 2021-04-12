@@ -27,7 +27,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <h1>Register Card</h1>
 </div>
 <div class="w3ls-form">
-<form action="{{ url_for('registercard')}}" medthod='post'>
+<form action="{{ url_for('registercard')}}" method="post">
 		<div class="w3l-last-grid1">
 			<div class="w3l-grid1">
 				<label class="text">First name</label>
@@ -58,10 +58,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>
 			</div>	
 			<div class="w3l-grid2">
-				<label class="text">date of birth</label>
+				<label class="text">Age</label>
 				<div class="w3l-div">
 					<i class="fa fa-calendar" aria-hidden="true"></i>
-					<input type="text" class="date" id="datepicker" name="date of birth" id="date of birth" placeholder="dob" value="MM/DD/YYYY" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'MM/DD/YYYY';}" required autofocus/>
+					<input type="text" class="date" id="age" name="age" id="age" placeholder="dob" value="age" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'MM/DD/YYYY';}" required autofocus/>
 				</div>	
 			</div>	
 			<div class="clear"></div>
@@ -121,10 +121,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		
 		<div class="w3l-right-grid1">
 		<div class="w3l-grid1">
-					<label class="text">Identity ID</label>
+					<label class="text">Salary</label>
 					<div class="w3l-div">
 						<i class="fa fa-id-card" aria-hidden="true"></i>
-						<input type="text" name="Identity" placeholder="Identity" id="Identity" required autofocus/>
+						<input type="text" name="salary" placeholder="salary" id="salary" required autofocus/>
 					</div>
 		</div>	
 			<label class="text">which type of Card</label>

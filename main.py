@@ -24,18 +24,18 @@ class User(db.Model) :
 
 class CardAccount(db.Model) :
     __tablename__ = "CardAccount"
-    id = Column(Integer, primary_key=True)
+    id = Column(String, primary_key=True)
     First_Name = Column(String)
     Last_Name = Column(String)
     Gender = Column(String)
-    Date = Column(String)
+    Age = Column(Integer)
     Email = Column(String)
     Phone = Column(Integer)
     Address = Column(String)
     City = Column(String)
     State = Column(String)
     Zipcode = Column(Integer)
-    Identity = Column(Integer)
+    Salary = Column(Integer)
     Cardtype = Column(String)
     id_user = Column(Integer)
     
@@ -44,10 +44,10 @@ class CardMoney(db.Model) :
     __tablename__ = "CardMoney"
     id = Column(String, primary_key=True)
     Money = Column(Integer)
-    CardID = Column(Integer)
+    CardID = Column(String)
     Limit = Column(Integer)
     LimitCount = Column(Integer)
-    Date = Column(Integer)
+    Date = Column(String)
 
 class CardHistory(db.Model) :
     __tablename__ = "CardHistory"
@@ -56,7 +56,7 @@ class CardHistory(db.Model) :
     Destination = Column(String)
     DateTime = Column(String)
     Action = Column(String)
-    CardID = Column(Integer)
+    CardID = Column(String)
 
 @app.route('/')
 def index() :
@@ -79,7 +79,14 @@ def profile() :
     if 'logged_in' in session :
         Card = db.session.query(CardAccount).filter_by(id_user=session['id']).first()
         if Card :
-            return render_template('profile.html')
+            CardA = db.session.query(CardAccount).filter_by(id_user=session['id']).first()
+            name = CardA.First_Name + " " + CardA.Last_Name
+            CardM = db.session.query(CardMoney).filter_by(CardID=CardA.id).first()
+            date = CardM.Date
+            money = CardM.Money
+            limit = CardM.Limit
+            limitcount = CardM.LimitCount
+            return render_template('profile.html', Name=name, Date=date, Money=money, MoneyLimit=limit, MoneyLimitCount=limitcount)
         else :
             return redirect(url_for('profile1'))
     else :
@@ -109,28 +116,58 @@ def login() :
 
 @app.route('/registercard', methods=['GET', 'POST'])
 def registercard() :
-    if request.method == 'POST' and 'fname' in request.form and 'lname' in request.form and 'gender' in request.form and 'date of birth' in request.form and 'email' in request.form and 'contact' in request.form and 'address' in request.form and 'city' in request.form and 'state' in request.form and 'zipcode' in request.form and 'Identity' in request.form and 'typecard' in request.form :
+    if request.method == 'POST' and 'fname' in request.form and 'lname' in request.form and 'gender' in request.form and 'age' in request.form and 'email' in request.form and 'contact' in request.form and 'address' in request.form and 'city' in request.form and 'zipcode' in request.form and 'state' in request.form and 'salary' in request.form and 'typecard' in request.form:
         fname = request.form['fname']
         lname = request.form['lname']
         gender = request.form['gender']
-        date = request.form['date of birth']
+        age = request.form['age']
         email = request.form['email']
         phone = request.form['contact']
         address = request.form['address']
         city = request.form['city']
         state = request.form['state']
         zipcode = request.form['zipcode']
-        Identity = request.form['Identity']
+        salary = request.form['salary']
         typecard = request.form['typecard']
-    elif request.method == "POST" :
-        print('1')
+        CardNumber = ''
+        date = datetime.now()
+        check = 0
+        while check == 0 :
+            for i in range(1,17) :
+                if i%4 == 0 :
+                    CardNumber += str(random.randint(0,9)) + " "
+                else :
+                    CardNumber += str(random.randint(0,9))
+            if db.session.query(CardAccount).filter_by(id=CardNumber).first() is not None :
+                check = 0
+            elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+                check = 0
+            elif not re.match(r'[0-9]+', phone) :
+                check = 0
+            elif not re.match(r'[0-9]+', age) :
+                check = 0
+            elif not re.match(r'[0-9]+', zipcode) :
+                check = 0
+            elif not re.match(r'[0-9]+', salary) :
+                check = 0
+            else :
+                check = 1
+        Card = CardAccount(id=CardNumber, First_Name=fname, Last_Name=lname, Gender=gender, Age=age, Email=email, Phone=phone, Address=address, City=city, State=state, Zipcode=zipcode, Salary=salary, Cardtype=typecard, id_user=session['id'])
+        CardM = CardMoney(id=uuid.uuid4().hex, Money=0, CardID=CardNumber, Limit=int(salary)*2, LimitCount=int(salary)*2, Date=str(date.year + 2) + "/" + str(date.month))
         
+        db.session.add(Card)
+        db.session.commit()
+        db.session.add(CardM)
+        db.session.commit()
+
+        return redirect(url_for('profile'))
     return render_template('registercard.html')
 
 @app.route('/register', methods=['GET', 'POST'])
 def register() :
     msg = ''
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form and 'email' in request.form :
+        print('1')
         id = len(User.query.all()) + 1
         username = request.form['username']
         password = request.form['password']
@@ -153,6 +190,7 @@ def register() :
             db.session.commit()
             return redirect(url_for('login'))
     elif request.method == 'POST' :
+        
         msg = 'Please fill out the form!'
     return render_template('register.html', msg=msg)
 
