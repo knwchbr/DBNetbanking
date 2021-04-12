@@ -122,6 +122,8 @@ def registercard() :
         zipcode = request.form['zipcode']
         Identity = request.form['Identity']
         typecard = request.form['typecard']
+    elif request.method == "POST" :
+        print('1')
         
     return render_template('registercard.html')
 
