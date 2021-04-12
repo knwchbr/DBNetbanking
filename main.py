@@ -76,6 +76,7 @@ def contact() :
 
 @app.route('/profile')
 def profile() :
+    '''
     if 'logged_in' in session :
         Card = db.session.query(CardAccount).filter_by(id_user=session['id']).first()
         if Card :
@@ -90,7 +91,8 @@ def profile() :
         else :
             return redirect(url_for('profile1'))
     else :
-        return redirect(url_for("login"))
+        return redirect(url_for("login"))'''
+    return render_template('profile.html')
 
 @app.route('/profile1')
 def profile1() :
