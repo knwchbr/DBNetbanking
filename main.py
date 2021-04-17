@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import sessionmaker, reconstructor, backref
 from datetime import datetime
+from datatables import column_dt, datatables
 import uuid
 import requests
 import re
@@ -54,7 +55,7 @@ class CardHistory(db.Model) :
     id = Column(String, primary_key=True)
     Money = Column(Integer)
     Destination = Column(String)
-    DateTime = Column(String)
+    Date = Column(String)
     Action = Column(String)
     CardID = Column(String)
 
@@ -76,23 +77,50 @@ def contact() :
 
 @app.route('/profile')
 def profile() :
-    '''
     if 'logged_in' in session :
         Card = db.session.query(CardAccount).filter_by(id_user=session['id']).first()
         if Card :
             CardA = db.session.query(CardAccount).filter_by(id_user=session['id']).first()
             name = CardA.First_Name + " " + CardA.Last_Name
             CardM = db.session.query(CardMoney).filter_by(CardID=CardA.id).first()
+            CardH = db.session.query(CardHistory).filter_by(CardID=CardA.id).all()
             ID = CardA.id
             money = CardM.Money
             limit = CardM.Limit
             limitcount = CardM.LimitCount
-            return render_template('profile.html', Name=name, ID=ID, Money=money, MoneyLimit=limit, MoneyLimitCount=limitcount)
+            History = []
+            for i in CardH :
+                if i.Action == "IN" :
+                    Money = "+" + "  " + str(i.Money)
+                elif i.Action == "OUT" :
+                    Money = "-" + "  " + str(i.Money)
+                value = {"Money" : Money, "Destination": i.Destination, "Date" : i.Date}
+                History.append(value)
+            return render_template('profile.html', Name=name, ID=ID, Money=money, MoneyLimit=limit, MoneyLimitCount=limitcount,History=History)
         else :
             return redirect(url_for('profile1'))
     else :
-        return redirect(url_for("login"))'''
+        return redirect(url_for("login"))
     return render_template('profile.html')
+
+@app.route('/History', methods=["GET", "POST"])
+def History() :
+    return render_template('History.html')
+
+@app.route('/History_load', methods=["GET", "POST"])
+def History_load() :
+    CardA = db.session.query(CardAccount).filter_by(id_user=session['id']).first()
+    CardH = db.session.query(CardHistory).filter_by(CardID=CardA.id).first()
+    print(CardH.Money)
+    columns = [
+        column_dt.ColumnDT(CardH.id),
+        column_dt.ColumnDT(CardH.Money),
+        column_dt.ColumnDT(CardH.Destination),
+        column_dt.ColumnDT(CardH.Date),
+    ]
+    query = db.session.query().select_from(CardH)
+    rowTable = datatables.DataTables(request.args.to_dict(), query, columns)
+    return rowTable.output_result()
 
 @app.route('/profile1')
 def profile1() :
